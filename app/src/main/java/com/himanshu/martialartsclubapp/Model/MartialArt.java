@@ -2,13 +2,13 @@ package com.himanshu.martialartsclubapp.Model;
 
 public class MartialArt
 {
-    private String martialArtId;
+    private int martialArtId;
     private String martialArtName;
     private double martialArtPrice;
     private String martialArtColor;
 
     // constructor
-    public MartialArt(String martialArtId, String martialArtName, double martialArtPrice, String martialArtColor)
+    public MartialArt(int martialArtId, String martialArtName, double martialArtPrice, String martialArtColor)
     {
         this.martialArtId = martialArtId;
         this.martialArtName = martialArtName;
@@ -17,7 +17,7 @@ public class MartialArt
     }
 
     // GETTERS
-    public String getMartialArtId() {
+    public int getMartialArtId() {
         return martialArtId;
     }
 
@@ -35,7 +35,7 @@ public class MartialArt
 
     // SETTERS
 
-    public void setMartialArtId(String martialArtId) {
+    public void setMartialArtId(int martialArtId) {
         this.martialArtId = martialArtId;
     }
 
@@ -49,5 +49,14 @@ public class MartialArt
 
     public void setMartialArtColor(String martialArtColor) {
         this.martialArtColor = martialArtColor;
+    }
+
+    @Override
+    public String toString()
+    {
+        return (getMartialArtId() + "\n"+
+                getMartialArtName() + "\n" +
+                getMartialArtPrice() + "\n" +
+                getMartialArtColor() );
     }
 }

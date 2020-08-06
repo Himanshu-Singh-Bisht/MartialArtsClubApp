@@ -1,8 +1,11 @@
 package com.himanshu.martialartsclubapp.Model;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 // inheriting  SQliteOpenHelper
 public class DatabaseHandler extends SQLiteOpenHelper
@@ -70,4 +73,42 @@ public class DatabaseHandler extends SQLiteOpenHelper
         database.execSQL(modifyMartialArtCommand);
         database.close();
     }
+
+    public ArrayList<MartialArt> returnAllMartialArtObjects()
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        String SQLQueryCommand = " select * from " + MARTIAL_ARTS_TABLE;
+        Cursor cursor = database.rawQuery(SQLQueryCommand , null);
+
+        ArrayList<MartialArt> martialArts = new ArrayList<>();
+        while(cursor.moveToNext())
+        {
+            MartialArt currentMartialArtObject = new MartialArt(Integer.parseInt(cursor.getString(0)),
+                                                cursor.getString(1) , cursor.getDouble(2) ,
+                                                    cursor.getString(3));
+            martialArts.add(currentMartialArtObject);
+        }
+        database.close();
+
+        return martialArts;
+    }
+
+    public MartialArt returnMartialArtObjectById(int id)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        String SQLQueryCommand = "select * from " + MARTIAL_ARTS_TABLE +
+                                " where " + ID_KEY + " = " + id;
+        Cursor cursor = database.rawQuery(SQLQueryCommand , null);
+        MartialArt martialArtObject = null;
+        if(cursor.moveToFirst())        // as there will only one object with that id.
+        {
+            martialArtObject = new MartialArt(Integer.parseInt(cursor.getString(0)) ,
+                    cursor.getString(1) , cursor.getDouble(2) ,
+                    cursor.getString(3));
+        }
+        database.close();
+        return martialArtObject;
+    }
+
+
 }
