@@ -1,5 +1,6 @@
 package com.himanshu.martialartsclubapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        
-        int id = item.getItemId();
 
+        switch(item.getItemId())
+        {
+            case R.id.add_martial_art :
+                Intent addMartialArtIntent = new Intent(MainActivity.this , AddMartialArtActivity.class);
+                startActivity(addMartialArtIntent);
+
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

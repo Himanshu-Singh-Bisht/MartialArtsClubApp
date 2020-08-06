@@ -3,4 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.himanshu.martialartsclubapp.MainActivity">
 
+
+
+    <item
+        android:id="@+id/add_martial_art"
+        android:title="Add Martial Art"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/delete_martial_art"
+        android:title="Delete Martial Art"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_martial_art"
+        android:title="Update Martial Art"
+        app:showAsAction="never" />
 </menu>
