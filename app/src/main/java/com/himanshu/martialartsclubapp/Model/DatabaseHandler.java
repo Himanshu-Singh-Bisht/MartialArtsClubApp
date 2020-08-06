@@ -38,4 +38,36 @@ public class DatabaseHandler extends SQLiteOpenHelper
         db.execSQL(" drop table if exists " + MARTIAL_ARTS_TABLE);
         onCreate(db);
     }
+
+    public void addMartialArt(MartialArt martialArtObject)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        String addMartialArtSQLCommand = "Insert Into " + MARTIAL_ARTS_TABLE + " values ( null , ' " +
+                        martialArtObject.getMartialArtName() + "' , " + " '" +
+                        martialArtObject.getMartialArtPrice() + "' , " + " '" +
+                        martialArtObject.getMartialArtColor() + "' )" ;
+        database.execSQL(addMartialArtSQLCommand);
+        database.close();
+    }
+
+    public void deleteMartialArtObjectFromDatabaseById(int id)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        String deleteMartialArtSQLCommand = "delete from " + MARTIAL_ARTS_TABLE +
+                " where " + ID_KEY + " = " + id;
+        database.execSQL(deleteMartialArtSQLCommand);
+        database.close();
+    }
+
+    public void modifyMartialArtObject(int martialArtId , String martialArtName , double martialArtPrice , String martialArtColor)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        String modifyMartialArtCommand = "update " + MARTIAL_ARTS_TABLE + " set " + NAME_KEY + " = '" +
+                        martialArtName + "' , " + PRICE_KEY + " = '" + martialArtPrice +
+                        "' , " + COLOR_KEY + " = '" + martialArtColor + ", " +
+                        " where " + ID_KEY + " = " + martialArtId;
+
+        database.execSQL(modifyMartialArtCommand);
+        database.close();
+    }
 }
