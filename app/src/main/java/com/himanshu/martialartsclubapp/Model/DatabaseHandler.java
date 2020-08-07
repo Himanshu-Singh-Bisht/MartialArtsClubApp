@@ -67,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         SQLiteDatabase database = getWritableDatabase();
         String modifyMartialArtCommand = "update " + MARTIAL_ARTS_TABLE + " set " + NAME_KEY + " = '" +
                         martialArtName + "' , " + PRICE_KEY + " = '" + martialArtPrice +
-                        "' , " + COLOR_KEY + " = '" + martialArtColor + ", " +
+                        "' , " + COLOR_KEY + " = '" + martialArtColor + "' " +
                         " where " + ID_KEY + " = " + martialArtId;
 
         database.execSQL(modifyMartialArtCommand);
