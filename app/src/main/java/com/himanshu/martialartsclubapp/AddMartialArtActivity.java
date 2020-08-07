@@ -16,7 +16,7 @@ public class AddMartialArtActivity extends AppCompatActivity implements View.OnC
     private EditText edtName, edtPrice, edtColor;
     private Button btnAddMartialArt, btnBack;
 
-    private DatabaseHandler databaseHandler;
+    DatabaseHandler databaseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

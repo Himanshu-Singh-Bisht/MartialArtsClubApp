@@ -12,7 +12,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 {
     private static final String DATABASE_NAME = "Martial Art Database";
     private static final int DATABASE_VERSION = 1;
-    private static final String MARTIAL_ARTS_TABLE = "Martial Arts";
+    private static final String MARTIAL_ARTS_TABLE = "MartialArt";
     private static final String ID_KEY = "id";
     private static final String NAME_KEY = "name";
     private static final String PRICE_KEY = "price";
@@ -26,13 +26,13 @@ public class DatabaseHandler extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String createDatabseSQL = "create table " + MARTIAL_ARTS_TABLE +
-                " ( " + ID_KEY  + " integer primary key autoincrementation " +
-                " , " + NAME_KEY + " text " + " , " +
-                PRICE_KEY + " real " + " , " +
-                COLOR_KEY + " text " +  " ) ";
+        String createDatabaseSQL = " CREATE TABLE " + MARTIAL_ARTS_TABLE +
+                "(" + ID_KEY  + " INTEGER primary key autoincrement," +
+                NAME_KEY + " TEXT,"  +
+                PRICE_KEY + " REAL," +
+                COLOR_KEY + " TEXT" +  ");";
 
-        db.execSQL(createDatabseSQL);           // to execute the query
+        db.execSQL(createDatabaseSQL);           // to execute the query
     }
 
     @Override

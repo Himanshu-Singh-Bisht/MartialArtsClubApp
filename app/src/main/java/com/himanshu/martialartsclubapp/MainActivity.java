@@ -42,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(addMartialArtIntent);
 
                 break;
+
+            case R.id.delete_martial_art :
+                Intent deleteMartialArtIntent = new Intent(MainActivity.this , DeleteMartialArtActivity.class);
+                startActivity(deleteMartialArtIntent);
+
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
